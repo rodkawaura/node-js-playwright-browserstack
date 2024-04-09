@@ -5,7 +5,7 @@ pipeline {
          steps {
             browserstack(credentialsId: 'bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
                bat 'npm i'
-               bat 'npx playwright test'
+               bat 'npx browserstack-node-sdk playwright test'
             }
          }
       }
