@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'npx playwright test --headed'
+                bat 'npx browserstack-node-sdk playwright test'
             }
         }
         stage('Deploy') {
