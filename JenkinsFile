@@ -1,20 +1,13 @@
 pipeline {
     agent any
-    environment {
-        BROWSERSTACK_USERNAME = 'rodrigomontemor_unN8kU'
-        BROWSERSTACK_ACCESS_KEY = 'oLhAq8Y8MFWzq4irqZJE'
-    }
     stages {
         stage('setup') {
             steps {
-                script {
-                    // Configure BrowserStack credentials
-                    withCredentials([usernamePassword(credentialsId: 'browserstack-credentials', usernameVariable: 'BROWSERSTACK_USERNAME', passwordVariable: 'BROWSERSTACK_ACCESS_KEY')]) {
-                        // Execute os testes usando as ferramentas do BrowserStack
-                        sh 'npm i'
-                        sh 'npx playwright test --browser=firefox@latest --browserstack'
-                    }
+                browserstack('bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
+                    bat 'npm i'
+                    bat 'npx playwright test'
                 }
+                browserStackReportPublisher 'automate'
             }
         }
     }
