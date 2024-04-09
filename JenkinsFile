@@ -4,8 +4,8 @@ pipeline {
         stage('setup') {
          steps {
             browserstack('bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
-               'npm i'
-               'npx playwright test'
+               bat 'npm i'
+               bat 'npx browserstack-node-sdk playwright test'
             }
             browserStackReportPublisher 'automate'
          }
