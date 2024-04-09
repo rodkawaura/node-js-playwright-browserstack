@@ -5,5 +5,4 @@ test('Acessar Porto', async ({ page }) => {
   await page.goto('https://www.portoseguro.com.br/');
 
   await page.click("//span[text()='Área do Cliente']");
-
 });
