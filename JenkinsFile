@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('setup') {
          steps {
-            browserstack(credentialsId: 'bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
+            browserstack('bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
                bat 'npm i'
                bat 'npx playwright test'
             }
