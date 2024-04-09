@@ -1,20 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                bat 'npm i'
+        stage('setup') {
+         steps {
+            browserstack(credentialsId: 'bb07cac1-7bfa-4f8c-a9d4-b6e572f1915d') {
+               bat 'npm i'
+               bat 'npx playwright test'
             }
-        }
-        stage('Test') {
-            steps {
-                bat 'npx browserstack-node-sdk playwright test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-            }
-        }
+         }
+      }
     }
 }
