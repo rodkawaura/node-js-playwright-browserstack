@@ -36,9 +36,9 @@ platforms:
     osVersion: Ventura
     browserName: playwright-webkit
     browserVersion: latest
-  - deviceName: Samsung Galaxy S23 Ultra
-    browserName: chrome
-    osVersion: 13.0
+  #- deviceName: Samsung Galaxy S23 Ultra
+  #  browserName: chrome
+  #  osVersion: 13.0
 
 # =======================
 # Parallels per Platform
