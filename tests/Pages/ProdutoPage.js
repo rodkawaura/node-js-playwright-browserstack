@@ -6,8 +6,12 @@ export class ProdutoPage{
     }
 
     async GetNomeProduto(){
-        console.log(this.page.locator('xpath=//h1[@class="ui-pdp-title"]').getAttribute(name))
-        var nomeProduto = 'abc'
+        var nomeProduto = await this.page.locator("xpath=//h1[@class='ui-pdp-title']").textContent()
         return nomeProduto
+    }
+
+    async AdicionarProdutoCarrinho(){
+        await this.page.locator("xpath=//span[contains(text(),'Adicionar ao carrinho')]")
+        await this.page.locator("xpath=//span[contains(text(),'Ir para o carrinho')]")
     }
 }
